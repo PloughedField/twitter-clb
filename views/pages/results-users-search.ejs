@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Node.js Getting Started on Heroku</title>
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+</head>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  </head>
+  
+</head>
+
+<body>
+
+  
+
+  <nav class="navbar navbar-default navbar-static-top navbar-inverse">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
+        </li>
+        
+        <ul class="nav navbar-nav navbar-right">
+          <li class="navbar-right">
+            <a href="/users-search"><span class="glyphicon glyphicon-book"></span> Twitter Users Search </a>
+          </li>
+          <li class="navbar-right">
+            <a href="/search-tweets"><span class="glyphicon glyphicon-book"></span> Search Tweets</a>
+          </li>
+        </ul>
+    </div>
+  </nav>
+
+<div class="jumbotron text-center">
+  
+  <div class="container">
+    <a href="/" class="lang-logo">
+      <img src="/lang-logo.png">
+    </a>
+    <h1>  תשובות חיפוש משתמשים</h1>
+    <p>This is a sample Node application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
+    
+    <% if (data) { %>
+      <% for(var i=0; i<data.length; i++){ %>
+          
+          <table style="width:100%">   
+              <tr>
+                  <th>Id</th>
+                  <th>Name</th>
+                  <th>Screen Name</th>
+                  <th>Followers</th>
+                  <th>Friends</th>
+                  <th>Created At</th>
+                  <th>Location</th>
+                  <th>Description</th>
+                  <th>Demo</th>
+              </tr>
+              
+              <tr>
+                  <td><%= data[i].id %> </td>
+                  <td><%= data[i].name %> </td>
+                  <td><%= data[i].screen_name %> </td>
+                  <td><%= data[i].followers_count%> </td>
+                  <td><%= data[i].friends_count %> </td>
+                  <td><%= data[i].created_at %> </td>
+                  <td><%= data[i].location%> </td>
+                  <td><%= data[i].description %> </td>
+                  <td><a href=<%= data[i].demo %>><%= data[i].demo %></a> </td>
+              </tr> 
+          </table>
+  
+          <% } %>
+  <% } %>
+  </div>
+
+
+  
+</div>
+
+
+
+
+</body>
+</html>

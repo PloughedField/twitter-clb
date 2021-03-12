@@ -19,23 +19,29 @@ app.use(express.urlencoded({
     extended: true
   }))
 
-// const urlencodedParser = app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/', (req, res) => res.render('pages/index'))
 
-app.get('/results-twitter', (req, res) => res.render('pages/results')) 
+app.get('/users-search', (req, res) => res.render('pages/users-search')) 
+app.get('/search-tweets', (req, res) => res.render('pages/search-tweets')) 
 
-
-app.get("/request-twitter", async(req, res) => {
+app.get("/users-search-api-v1-twitter", async(req, res) => {
   
-    // res.status(200).json({ message: 'ok' });
-    // console.log(req)
-    var resp = await twit.users_search(req.query.search)
-      
+    var resp = await twit.users_search(req.query.search);
+   
+      for (let item of resp) {
+        item.demo =  `https://twitter.com/${item.screen_name}`
+      }
+    res.render('pages/results-users-search', { data: resp })
     
-    res.render('pages/results', { data: resp})
-
     
+})
 
+app.get("/tweets-search-api-v1-twitter", async(req, res) => {
+  
+  var resp = await twit.tweets_search(req.query.search);
+  res.render('pages/results-search-tweets', { data:resp.data})
+  
+  
 })
 
 app.listen(PORT, () => console.log(` http://localhost:${PORT}`))
@@ -60,14 +66,4 @@ app.listen(PORT, () => console.log(` http://localhost:${PORT}`))
 
 
 
-
-// // express()
-// //   .use(express.static(path.join(__dirname, 'public')))
-// //   .set('views', path.join(__dirname, 'views'))
-// //   .set('view engine', 'ejs')
-// //   .get('/', (req, res) => res.render('pages/index'))
-// //   .get('/results-twitter', (req, res) => res.render('pages/results'))
-// //   .get('/request-twitter', (req, res) => twit.users_search(req))
-  
-// //   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
