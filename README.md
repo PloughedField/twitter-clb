@@ -22,6 +22,7 @@ API's
 
 ## Running Locally
 Step one: Apply and receive approval for a developer account Twitter.
+
 Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
 
 ```sh
