@@ -15,8 +15,8 @@ API's
 
 |Method|Type|Description|Method|url - ex|
 |---|---|---|---|---|
-|/tweets-search-api-v1-twitter|string|input keyword return all tweets containing keyword|GET|https://api.twitter.com/1.1/search/tweets.json?q=covid-19
-|/users-search-api-v1-twitter|string|input UserName or UserId return all users or  user specific|GET|https://api.twitter.com/1.1/users/search.json?q=niralon  
+|/tweets-search-api-v1-twitter|string|input keyword return all tweets containing keyword|GET|https://api.twitter.com/1.1/search/tweets.json?q=covid-19|
+|/users-search-api-v1-twitter|string|input UserName or UserId return all users or  user specific|GET|https://api.twitter.com/1.1/users/search.json?q=niralon|  
 
 
 
