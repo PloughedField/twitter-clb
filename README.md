@@ -1,21 +1,39 @@
-# node-js-getting-started
+# Twitter CLB 
+    A simple web app that integrates
+    Server and client development, in the popular development language
+    NodeJS
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+    Server Side: NodeJs
+    Client side: EJS
 
-This application supports the [Getting Started on Heroku with Node.js](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+    The app works as an insights interface from Twitter.
+    The app uses the Twitter API v1
+
+
+
+API's
+
+|Method|Type|Description|
+|---|---|---|
+|/tweets-search-api-v1-twitter|string|input keyword return all tweets containing keyword|   
+|/users-search-api-v1-twitter|string|input UserName or UserId return all users or  user specific|  
+
+
 
 ## Running Locally
-
+Step one: Apply and receive approval for a developer account Twitter.
 Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
 
 ```sh
-$ git clone https://github.com/heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
+$ git clone https://github.com/PloughedField/twitter-clb.git 
+$ cd twitter-clb
 $ npm install
 $ npm start
+$ or
+$ node ./index.js
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+Your app should now be running on [localhost:5050](http://localhost:5050/).
 
 ## Deploying to Heroku
 
@@ -30,10 +48,10 @@ or
 
 ## Documentation
 
-For more information about using Node.js on Heroku, see these Dev Center articles:
+For more information about using Twitter API:
 
-- [Getting Started on Heroku with Node.js](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+- [Getting started Twitter API](https://developer.twitter.com/en/docs/twitter-api/getting-started/guide)
+- [twitter-api/v1](https://developer.twitter.com/en/docs/twitter-api/v1)
+- [twitter-api/v2](https://developer.twitter.com/en/docs/twitter-api/early-access)
+
+
