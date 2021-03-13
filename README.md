@@ -9,14 +9,29 @@
     The app works as an insights interface from Twitter.
     The app uses the Twitter API v1
 
+    # server - index.js 
+    # logic - twitter.js
 
 
-API's
 
-|Method|Type|Description|Method|url - ex|
-|---|---|---|---|---|
-|/tweets-search-api-v1-twitter|string|input keyword return all tweets containing keyword|GET|https://api.twitter.com/1.1/search/tweets.json?q=covid-19|
-|/users-search-api-v1-twitter|string|input UserName or UserId return all users or  user specific|GET|https://api.twitter.com/1.1/users/search.json?q=niralon|  
+## API's
+
+    |Method|Type|Description|Method|url - ex|
+    |---|---|---|---|---|
+    |/tweets-search-api-v1-twitter|string|input keyword return all tweets containing keyword|GET|https://api.twitter.com/1.1/search/tweets.json?q=covid-19|
+    |/users-search-api-v1-twitter|string|input UserName or UserId return all users or  user specific|GET|https://api.twitter.com/1.1/users/search.json?q=niralon|  
+
+    Results Ex - User from Twitter
+    |Id	Name|Screen Name|Followers|Friends|Created At|Location|Description|Demo|
+    |---|---|---|---|---|---|---|---|
+    |1066915601992560600|niralon|V1UP5V1LNPPBtpy|3|414|Mon Nov 26 04:44:36 +0000 2018|ישראל|https://twitter.com/V1UP5V1LNPPBtpy|
+
+
+    Results Ex - Tweet from Twitter
+    |Id	|Content Status|
+    |---|---|
+    |123456789|@NirAlon Israel is beautiful and flourishing|
+
 
 
 

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Home page</title>
+  <title>Error Users Search</title>
   <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
 </head>
@@ -17,8 +17,7 @@
 <body>
 
   
-  <!--Useful Links-->
-
+<!--Useful Links-->
   <nav class="navbar navbar-default navbar-static-top navbar-inverse">
     <div class="container">
       <ul class="nav navbar-nav">
@@ -26,26 +25,30 @@
           <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
         </li>
         
-      <ul class="nav navbar-nav navbar-right">
-        <li class="navbar-right">
-          <a href="/users-search"><span class="glyphicon glyphicon-book"></span> Twitter Users Search </a>
-        </li>
-        <li class="navbar-right">
-          <a href="/search-tweets"><span class="glyphicon glyphicon-book"></span> Search Tweets</a>
-        </li>
-      </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="navbar-right">
+            <a href="/users-search"><span class="glyphicon glyphicon-book"></span> Twitter Users Search </a>
+          </li>
+          <li class="navbar-right">
+            <a href="/search-tweets"><span class="glyphicon glyphicon-book"></span> Search Tweets</a>
+          </li>
+        </ul>
     </div>
   </nav>
 
 <div class="jumbotron text-center">
-   <!--About Us-->
+  <!--Search Engine-->
+
   <div class="container">
     <a href="/" class="lang-logo">
       <img src="/twitter-logo.jpg">
     </a>
-    <h1 style="font-size:200%;"> About Us</h1>
-    <p>This site will help you find tweets on Twitter by entering a word or sequence of words and in addition search for Twitter users easily.</p>
-      
+    <h1 style="font-size:30px";>Something went wrong please try again</h1>
+    <h1 style="font-size:200%;"> Users Search</h1>
+    <form class="example"  method="GET", action="users-search-api-v1-twitter">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
   </div>
 
 

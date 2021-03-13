@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Node.js Getting Started on Heroku</title>
+  <title>Twitter users search</title>
   <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
 </head>
@@ -17,7 +17,7 @@
 <body>
 
   
-
+<!--Useful Links-->
   <nav class="navbar navbar-default navbar-static-top navbar-inverse">
     <div class="container">
       <ul class="nav navbar-nav">
@@ -40,11 +40,12 @@
   
   <div class="container">
     <a href="/" class="lang-logo">
-      <img src="/lang-logo.png">
+      <img src="/twitter-logo.jpg">
     </a>
-    <h1>  תשובות חיפוש משתמשים</h1>
-    <p>This is a sample Node application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
-    <table style="width:100%">   
+    <!--results for tweets-->
+    <h1 style="font-size:30px";> User search results</h1>
+   
+    <table>   
       <tr>
           <th>Id</th>
           <th>Name</th>
@@ -60,7 +61,7 @@
     <% if (data) { %>
       <% for(var i=0; i<data.length; i++){ %>
           
-          <table style="width:100%">     
+          <table >     
               <tr>
                   <td><%= data[i].id %> </td>
                   <td><%= data[i].name %> </td>
@@ -75,7 +76,14 @@
           </table>
   
           <% } %>
-  <% } %>
+  <% }else{ %>
+      
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <a href="/users-search"><span class="glyphicon glyphicon-book"></span>No results Please try again </a>
+      
+    </ul>
+<% } %>
   </div>
 
 
