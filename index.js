@@ -28,11 +28,12 @@ app.get('/search-tweets', (req, res) => res.render('pages/search-tweets'))
 app.get("/users-search-api-v1-twitter", async(req, res) => {
   var keyword =req.query.search
   try { 
-    var resp = await twit.users_search(keyword);
-    if(keyword == "" || keyword == undefined || keyword == null || error in resp){
+    if(keyword == "" || keyword == undefined || keyword == null ){
       res.render('pages/error_users')
 
     }else {
+    var resp = await twit.users_search(req.query.search);
+   
       for (let item of resp) {
         item.demo =  `https://twitter.com/${item.screen_name}`
       }
@@ -53,12 +54,11 @@ app.get("/users-search-api-v1-twitter", async(req, res) => {
 app.get("/tweets-search-api-v1-twitter", async(req, res) => {
   var keyword =req.query.search
   try { 
-    var resp = await twit.tweets_search(keyword);
-    if(keyword == "" || keyword == undefined || keyword == null || error in resp){
+    if(keyword == "" || keyword == undefined || keyword == null ){
       res.render('pages/error_tweets')
 
     }else {
-      
+      var resp = await twit.tweets_search(keyword);
       res.render('pages/results-search-tweets', { data:resp.data})
     }
 
@@ -74,25 +74,3 @@ app.get("/tweets-search-api-v1-twitter", async(req, res) => {
 })
 //Exsspres listen PORT 5050
 app.listen(PORT, () => console.log(` http://localhost:${PORT}`))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
