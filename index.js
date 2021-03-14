@@ -28,12 +28,11 @@ app.get('/search-tweets', (req, res) => res.render('pages/search-tweets'))
 app.get("/users-search-api-v1-twitter", async(req, res) => {
   var keyword =req.query.search
   try { 
-    if(keyword == "" || keyword == undefined || keyword == null ){
+    var resp = await twit.users_search(req.query.search);
+    if(keyword == "" || keyword == undefined || keyword == null || error in resp){
       res.render('pages/error_users')
 
     }else {
-    var resp = await twit.users_search(req.query.search);
-   
       for (let item of resp) {
         item.demo =  `https://twitter.com/${item.screen_name}`
       }
@@ -54,11 +53,12 @@ app.get("/users-search-api-v1-twitter", async(req, res) => {
 app.get("/tweets-search-api-v1-twitter", async(req, res) => {
   var keyword =req.query.search
   try { 
-    if(keyword == "" || keyword == undefined || keyword == null ){
+    var resp = await twit.tweets_search(keyword);
+    if(keyword == "" || keyword == undefined || keyword == null || error in resp){
       res.render('pages/error_tweets')
 
     }else {
-      var resp = await twit.tweets_search(keyword);
+      
       res.render('pages/results-search-tweets', { data:resp.data})
     }
 
