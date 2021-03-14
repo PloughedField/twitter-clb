@@ -28,7 +28,7 @@ app.get('/search-tweets', (req, res) => res.render('pages/search-tweets'))
 app.get("/users-search-api-v1-twitter", async(req, res) => {
   var keyword =req.query.search
   try { 
-    var resp = await twit.users_search(req.query.search);
+    var resp = await twit.users_search(keyword);
     if(keyword == "" || keyword == undefined || keyword == null || error in resp){
       res.render('pages/error_users')
 
