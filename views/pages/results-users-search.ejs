@@ -78,11 +78,7 @@
           <% } %>
   <% }else{ %>
       
-    <ul class="nav navbar-nav navbar-right">
-      <li>
-        <a href="/users-search"><span class="glyphicon glyphicon-book"></span>No results Please try again </a>
-      
-    </ul>
+    <%- include('error_users.ejs')%>
 <% } %>
   </div>
 
