@@ -64,11 +64,7 @@
             <% } %>
     <% }else{ %>
       
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="/search-tweets"><span class="glyphicon glyphicon-book"></span>No results Please try again </a>
-        
-      </ul>
+      <%- include('error_tweets.ejs')%>
   <% } %>
   </div>
 
