@@ -37,13 +37,20 @@ app.get("/users-search-api-v1-twitter", async(req, res) => {
       for (let item of resp) {
         item.demo =  `https://twitter.com/${item.screen_name}`
       }
-    res.render('pages/results-users-search', { data: resp })
+      console.log(resp,"A")
+      if (resp.length == 0 || 'errors' in resp){
+        res.render('pages/error_users')
+      }else{
+        res.render('pages/results-users-search', { data: resp })
+      }
+
     }
 
     
     
   }
   catch(err) {
+    console.log(err)
     res.render('pages/error_users')
   }
     
@@ -59,13 +66,20 @@ app.get("/tweets-search-api-v1-twitter", async(req, res) => {
 
     }else {
       var resp = await twit.tweets_search(keyword);
-      res.render('pages/results-search-tweets', { data:resp.data})
+      console.log(resp,"B")
+      if ('errors' in resp || resp.meta.result_count == 0){
+        res.render('pages/error_tweets')
+      }else{
+        res.render('pages/results-search-tweets', { data:resp.data})
+      }
+      
     }
 
     
     
   }
   catch(err) {
+    console.log(err)
     res.render('pages/error_tweets')
   }
   

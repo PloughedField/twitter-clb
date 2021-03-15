@@ -37,10 +37,14 @@ function sendHttpRequest(user_name) {
       async (err, res, body) => {
         var data = await JSON.parse(body);
         console.log('B')
+        
         resolve(data);
       });
   });
 }
+
+
+
 
 // A function that searches for tweets on Twitter (2)
 async function tweets_search(key_words) {
