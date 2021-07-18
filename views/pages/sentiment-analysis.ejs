@@ -1,17 +1,28 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Error Search Tweets</title>
+  <title>‏Sentiment Analysis</title>
   <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
 </head>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+  <style>
+    body {
+    overflow: hidden; /* Hide scrollbars */
+    }
+  </style>
   </head>
+  
+</head>
+
 <body>
+
+  
   <!--Useful Links-->
+
   <nav class="navbar navbar-default navbar-static-top navbar-inverse">
     <div class="container">
       <ul class="nav navbar-nav">
@@ -21,8 +32,8 @@
         
         <ul class="nav navbar-nav navbar-right">
           <li class="navbar-right">
-            <a href="/sentiment-analysis"><span class="glyphicon glyphicon-book"></span> Twitter Sentiment Analysis </a>
-          </li>
+          <a href="/sentiment-analysis"><span class="glyphicon glyphicon-book"></span> Twitter Sentiment Analysis </a>
+        </li>
           <li class="navbar-right">
             <a href="/users-search"><span class="glyphicon glyphicon-book"></span> Twitter Users Search </a>
           </li>
@@ -34,25 +45,25 @@
   </nav>
 
 <div class="jumbotron text-center">
-   <!--Search Engine-->
+  
   <div class="container">
     <a href="/" class="lang-logo">
       <img src="/twitter-logo.jpg">
     </a>
-    <h1 style="font-size:30px";>Something went wrong please try again</h1>    
-    <h1 style="font-size:30px";> Search Tweets</h1>
+    <!--Search Engine-->
 
-        <form class="example" action="tweets-search-api-v1-twitter">
+    <h1 style="font-size:200%;">Sentiment Analysis</h1>
+    <form class="example"  method="GET", action="users-search-api-v1-twitter">
       <input type="text" placeholder="Search.." name="search">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
   </div>
 
- 
+
   
 </div>
 
-    
+
 
 
 </body>
