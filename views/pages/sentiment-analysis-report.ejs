@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>‏Sentiment Analysis Report</title>
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+</head>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+  
+</head>
+<head>
+
+
+
+
+  <script>
+  window.onload = function () {
+  
+  
+  var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light1", // "light1", "light2", "dark1", "dark2"
+	title:{
+		text: "ניתוח כללי"
+	},
+	axisY: {
+		// title: "Reserves(MMbbl)"
+    suffix: "k"
+   
+	},
+	data: [{        
+		type: "column",  
+		showInLegend: true, 
+		legendMarkerColor: "grey",
+   
+		legendText: "כמות הציוצים לפי פרמטר",
+		
+    
+		dataPoints: [     
+      { y: 5000, label: "סה\"כ ציוצים", indexLabel: "\u2605 Highest"}, 
+			{ y: 4000, label: "ארגונים ומסדות"},
+			{ y: 1000,  label: "אזרחים" },
+			{ y: 200,  label: "תושבי האזור" ,indexLabel: "\u2691 Lowest"},
+			{ y: 500,  label: "תושבי ארה\"ב" },
+			{ y: 300,  label: "שאר העולם" },
+			{ y: 1500, label: "סימני רגיעה" },
+			{ y: 1500,  label: "חיובי" },
+      { y: 3500,  label: "שלילי" },
+      { y: 1000,  label: "מופתע" },
+			{ y: 2500,  label: "מפוחד" }
+		]
+	}]
+});
+chart.render();
+  
+  var chart1 = new CanvasJS.Chart("chartContainer1", {
+    exportEnabled: true,
+    animationEnabled: true,
+    title:{
+      text: "פילוח האוכלוסיה"
+    },
+    legend:{
+      cursor: "pointer",
+      itemclick: explodePie
+    },
+    data: [{
+      type: "pie",
+      showInLegend: true,
+      toolTipContent: "{name}: <strong>{y}%</strong>",
+      indexLabel: "{name} - {y}%",
+      dataPoints: [
+       
+			{ y: 80, name: "ארגונים ומסדות",exploded: true},
+			{ y: 20,  name: "אזרחים" },
+			{ y: 5,  name: "תושבי האזור" },
+			{ y: 10,  name: "תושבי ארה\"ב" },
+			{ y: 5,  name: "שאר העולם" }
+      ]
+    }]
+  });
+  chart1.render();
+  
+  
+  function explodePie (e) {
+    if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+      e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+    } else {
+      e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+    }
+    e.chart1.render();
+    
+  
+  
+  }
+  
+  
+  var chart2 = new CanvasJS.Chart("chartContainer2", {
+//   animationEnabled: true,
+// 	exportEnabled: true,
+// 	title:{
+// 		text: "Product Manufacturing Expenses"
+// 	},
+// 	data: [{
+// 		type: "pyramid",
+// 		indexLabelFontSize: 18,
+// 		valueRepresents: "area",
+// 		showInLegend: true,
+//     // toolTipContent: "{name}: <strong>{y}%</strong>"
+//     // // indexLabel: "{name} - {y}%",
+// 		legendText: "{label}",
+// 		toolTipContent: "<b>{label}:</b> {y}%",
+//     indexLabel: "{label} - {y}%",
+// 		dataPoints: [
+//     { y: 10, label: "סימני רגיעה" },
+// 			{ y: 20,  label: "חיובי" },
+//       { y: 15,  label: "שלילי" },
+//       { y: 15,  label: "מופתע" },
+// 			{ y: 40,  label: "מפוחד"}
+// 		]
+// 	}]
+// });
+// chart2.render();
+theme: "light1",
+	exportFileName: "Doughnut Chart",
+	exportEnabled: true,
+	animationEnabled: true,
+	title:{
+		text: "פילוח הרגשות"
+	},
+	legend:{
+		cursor: "pointer",
+		itemclick: explodePie
+	},
+	data: [{
+		type: "doughnut",
+		innerRadius: 90,
+		showInLegend: true,
+		toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
+		indexLabel: "{name} - #percent%",
+		dataPoints: [
+      { y: 35, name: "סימני רגיעה" },
+      { y: 15,  name: "מופתע" },
+			{ y: 40,  name: "מפוחד"}
+		]
+	}]
+});
+chart2.render();
+
+function explodePie (e) {
+	if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+		e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+	} else {
+		e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+	}
+	e.chart.render();
+}
+  
+  var chart3 = new CanvasJS.Chart("chartContainer3", {
+  animationEnabled: true,
+	title:{
+		text: "גרף דגימות - חיפוש ציוצים רלוונטים"
+	},
+	axisX:{
+		valueFormatString: "DD MMM"
+	},
+	axisY: {
+		title: "",
+    suffix: "k"
+		// scaleBreaks: {
+		// 	autoCalculate: true
+		// }
+	},
+	data: [{
+		type: "line",
+		xValueFormatString: "DD MMM",
+		color: "#33ccff",
+		dataPoints: [
+			{ x: new Date(2021, 6, 29), y: 610 },
+			{ x: new Date(2021, 6, 30), y: 680 },
+			{ x: new Date(2021, 6, 31), y: 690 },
+			{ x: new Date(2021, 7, 1), y: 700 },
+			{ x: new Date(2021, 7, 2), y: 710 },
+			{ x: new Date(2021, 7, 3), y: 658 },
+			{ x: new Date(2021, 7, 4), y: 734 },
+			{ x: new Date(2021, 7, 5), y: 150 },
+			{ x: new Date(2021, 7, 6), y: 50 },
+			{ x: new Date(2021, 7, 7), y: 18 }
+			
+		]
+	}]
+});
+  chart3.render();
+  
+  
+  
+  
+  }
+  
+  </script>
+  <style>
+  
+  body
+  {
+    background: #345;
+    
+  }
+  table
+  {
+    
+    border-collapse: separate;
+    border-spacing: 5px;
+    border: 0;
+    margin: 1em;
+    width:98%;
+    align:center;
+  }
+  td
+  {
+  
+    font-size: 1em;
+    padding: 20px;
+    align:center;
+  }
+  
+  
+  
+  tr:nth-child(odd) td
+  {
+      background: #fff;
+      color: #fff;
+  }
+  tr:nth-child(even) td
+  {
+      background: #fff;
+      color: #fff;
+  }
+  </style>
+  </head>
+<body>
+
+  
+  <!--Useful Links-->
+
+  <nav class="navbar navbar-default navbar-static-top navbar-inverse">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
+        </li>
+        
+        <ul class="nav navbar-nav navbar-right">
+          <li class="navbar-right">
+            <a href="/sentiment-analysis-report/"><span class="glyphicon glyphicon-book"></span> Twitter Sentiment Analysis Report</a>
+          </li>
+          <li class="navbar-right">
+          <a href="https://clb-sentiment-analysis.herokuapp.com/"><span class="glyphicon glyphicon-book"></span> Twitter Sentiment Analysis </a>
+        </li>
+          <li class="navbar-right">
+            <a href="/users-search"><span class="glyphicon glyphicon-book"></span> Twitter Users Search </a>
+          </li>
+          <li class="navbar-right">
+            <a href="/search-tweets"><span class="glyphicon glyphicon-book"></span> Twitter Search Tweets</a>
+          </li>
+        </ul>
+    </div>
+  </nav>
+
+<div class="jumbotron text-center">
+  
+  <div class="container">
+    <a href="/" class="lang-logo">
+      <img src="/twitter-logo.jpg">
+    </a>
+    
+  </div>
+
+  <table>
+    <tr><td  colspan=2>
+        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+     
+    </td></tr>
+    <tr>
+      <td>
+        
+          <div id="chartContainer1" style="height: 500px; width: 100%;"></div>
+      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        
+        </td>
+      <td>
+        <div id="chartContainer2" style="height: 500px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+      </td>
+    </tr>
+  <tr><td colspan=2>
+      <div id="chartContainer3" style="height: 370px; width: 100%;"></div>
+      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  </td></tr>
+  </table>
+  
+</div>
+
+
+
+
+</body>
+</html>

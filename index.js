@@ -25,8 +25,8 @@ app.get('/users-search', (req, res) => res.render('pages/users-search'))
 //retern tweets search page
 app.get('/search-tweets', (req, res) => res.render('pages/search-tweets')) 
 
-//retern sentiment-analysis page
-// app.get('/sentiment-analysis', (req, res) => res.render('pages/sentiment-analysis')) 
+//retern sSensitivity analysis report
+app.get('/sentiment-analysis-report', (req, res) => res.render('pages/sentiment-analysis-report')) 
 
 //Sends API request users-search
 app.get("/users-search-api-v1-twitter", async(req, res) => {
