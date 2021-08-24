@@ -26,11 +26,11 @@
 	animationEnabled: true,
 	theme: "light1", // "light1", "light2", "dark1", "dark2"
 	title:{
-		text: "ניתוח כללי"
+		text: "ניתוח כללי - חיובי / שלילי"
 	},
 	axisY: {
 		// title: "Reserves(MMbbl)"
-    suffix: "k"
+    // suffix: "k"
    
 	},
 	data: [{        
@@ -42,163 +42,396 @@
 		
     
 		dataPoints: [     
-      { y: 5000, label: "סה\"כ ציוצים", indexLabel: "\u2605 Highest"}, 
-			{ y: 4000, label: "ארגונים ומסדות"},
-			{ y: 1000,  label: "אזרחים" },
-			{ y: 200,  label: "תושבי האזור" ,indexLabel: "\u2691 Lowest"},
-			{ y: 500,  label: "תושבי ארה\"ב" },
-			{ y: 300,  label: "שאר העולם" },
-			{ y: 1500, label: "סימני רגיעה" },
-			{ y: 1500,  label: "חיובי" },
-      { y: 3500,  label: "שלילי" },
-      { y: 1000,  label: "מופתע" },
-			{ y: 2500,  label: "מפוחד" }
+      { y: 6000, label: "סה\"כ ציוצים",color:"#00ffff"}, 
+   
+			{ y: 2598, label: "חיובי",color:"green"},
+			{ y: 2731,  label: "שלילי" ,color:"red"}
 		]
 	}]
 });
 chart.render();
-  
-  var chart1 = new CanvasJS.Chart("chartContainer1", {
-    exportEnabled: true,
-    animationEnabled: true,
-    title:{
-      text: "פילוח האוכלוסיה"
-    },
-    legend:{
-      cursor: "pointer",
-      itemclick: explodePie
-    },
-    data: [{
-      type: "pie",
-      showInLegend: true,
-      toolTipContent: "{name}: <strong>{y}%</strong>",
-      indexLabel: "{name} - {y}%",
-      dataPoints: [
-       
-			{ y: 80, name: "ארגונים ומסדות",exploded: true},
-			{ y: 20,  name: "אזרחים" },
-			{ y: 5,  name: "תושבי האזור" },
-			{ y: 10,  name: "תושבי ארה\"ב" },
-			{ y: 5,  name: "שאר העולם" }
-      ]
-    }]
-  });
-  chart1.render();
-  
-  
-  function explodePie (e) {
-    if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
-      e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
-    } else {
-      e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
-    }
-    e.chart1.render();
-    
-  
-  
-  }
-  
-  
-  var chart2 = new CanvasJS.Chart("chartContainer2", {
-//   animationEnabled: true,
-// 	exportEnabled: true,
-// 	title:{
-// 		text: "Product Manufacturing Expenses"
-// 	},
-// 	data: [{
-// 		type: "pyramid",
-// 		indexLabelFontSize: 18,
-// 		valueRepresents: "area",
-// 		showInLegend: true,
-//     // toolTipContent: "{name}: <strong>{y}%</strong>"
-//     // // indexLabel: "{name} - {y}%",
-// 		legendText: "{label}",
-// 		toolTipContent: "<b>{label}:</b> {y}%",
-//     indexLabel: "{label} - {y}%",
-// 		dataPoints: [
-//     { y: 10, label: "סימני רגיעה" },
-// 			{ y: 20,  label: "חיובי" },
-//       { y: 15,  label: "שלילי" },
-//       { y: 15,  label: "מופתע" },
-// 			{ y: 40,  label: "מפוחד"}
-// 		]
-// 	}]
-// });
-// chart2.render();
-theme: "light1",
-	exportFileName: "Doughnut Chart",
-	exportEnabled: true,
+
+var chart4 = new CanvasJS.Chart("chartContainer4", {
 	animationEnabled: true,
+	theme: "light1", // "light1", "light2", "dark1", "dark2"
 	title:{
-		text: "פילוח הרגשות"
+		text: "פילוח אוכלוסיה כללי"
 	},
-	legend:{
-		cursor: "pointer",
-		itemclick: explodePie
+	axisY: {
+		// title: "Reserves(MMbbl)"
+    // suffix: "k"
+   
 	},
-	data: [{
-		type: "doughnut",
-		innerRadius: 90,
-		showInLegend: true,
-		toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
-		indexLabel: "{name} - #percent%",
-		dataPoints: [
-      { y: 35, name: "סימני רגיעה" },
-      { y: 15,  name: "מופתע" },
-			{ y: 40,  name: "מפוחד"}
+	data: [{        
+		type: "column",  
+		showInLegend: true, 
+		legendMarkerColor: "grey",
+   
+		legendText: "כמות הציוצים לפי פרמטר",
+		
+    
+		dataPoints: [     
+      { y: 4268, label: "ארגונים מוסדות",color:"#bf00ff" ,indexLabel: "\u2605 Highest"}, 
+			{ y: 1732,  label: "אזרחים" ,color:"#0080ff" ,indexLabel: "\u2691 Lowest"}
 		]
 	}]
 });
-chart2.render();
+chart4.render();
 
-function explodePie (e) {
-	if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
-		e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
-	} else {
-		e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
-	}
-	e.chart.render();
-}
+var chart5 = new CanvasJS.Chart("chartContainer5", {
+	animationEnabled: true,
+	theme: "light1", // "light1", "light2", "dark1", "dark2"
+	title:{
+		text: "פילוח אוכלוסיה מפורט"
+	},
+	axisY: {
+		// title: "Reserves(MMbbl)"
+    // suffix: "k"
+   
+	},
+	data: [{        
+		type: "column",  
+		showInLegend: true, 
+		legendMarkerColor: "grey",
+   
+		legendText: "כמות הציוצים לפי פרמטר",
+		
+    
+		dataPoints: [     
+      { y: 86, label: "תושבי האזור",indexLabel: "\u2691 Lowest"}, 
+			{ y: 1039, label: "תושבי ארה\"ב",indexLabel: "\u2605 Highest",color:"orange"},
+			{ y: 607,  label: "שאר העולם",color:"#808080" }
+		]
+	}]
+});
+chart5.render();
+
+var chart6 = new CanvasJS.Chart("chartContainer6", {
+	animationEnabled: true,
+	theme: "light1", // "light1", "light2", "dark1", "dark2"
+	title:{
+		text: "פילוח רגשות מפורט"
+	},
+	axisY: {
+		// title: "Reserves(MMbbl)"
+    // suffix: "k"
+   
+	},
+	data: [{        
+		type: "column",  
+		showInLegend: true, 
+		legendMarkerColor: "grey",
+   
+		legendText: "כמות הציוצים לפי פרמטר",
+		
+    
+		dataPoints: [     
+      { y: 1932, label: "מופתע",color:"#ffb3b3"}, 
+			{ y: 2431, label: "מפוחד" ,indexLabel: "\u2605 Highest"},
+			{ y: 966,  label: "סימני רגיעה" ,indexLabel: "\u2691 Lowest"}
+		]
+	}]
+});
+chart6.render();
+  
+
+    
+  
+  
   
   var chart3 = new CanvasJS.Chart("chartContainer3", {
   animationEnabled: true,
 	title:{
-		text: "גרף דגימות - חיפוש ציוצים רלוונטים"
+		text: "גרף דגימות -חיובי שלילי"
 	},
 	axisX:{
 		valueFormatString: "DD MMM"
 	},
 	axisY: {
 		title: "",
-    suffix: "k"
+    // suffix: "k"
 		// scaleBreaks: {
 		// 	autoCalculate: true
 		// }
 	},
 	data: [{
+    showInLegend: true,
+		name: "חיובי",
+		markerType: "square",
 		type: "line",
 		xValueFormatString: "DD MMM",
 		color: "#33ccff",
+   
 		dataPoints: [
-			{ x: new Date(2021, 6, 29), y: 610 },
-			{ x: new Date(2021, 6, 30), y: 680 },
-			{ x: new Date(2021, 6, 31), y: 690 },
-			{ x: new Date(2021, 7, 1), y: 700 },
-			{ x: new Date(2021, 7, 2), y: 710 },
-			{ x: new Date(2021, 7, 3), y: 658 },
-			{ x: new Date(2021, 7, 4), y: 734 },
-			{ x: new Date(2021, 7, 5), y: 150 },
-			{ x: new Date(2021, 7, 6), y: 50 },
-			{ x: new Date(2021, 7, 7), y: 18 }
+			{ x: new Date(2021, 6, 29), y: 501 },
+			{ x: new Date(2021, 6, 30), y: 174 },
+			{ x: new Date(2021, 6, 31), y: 91 },
+			{ x: new Date(2021, 7, 1), y: 38 },
+			{ x: new Date(2021, 7, 2), y: 62 },
+			{ x: new Date(2021, 7, 3), y: 43 },
+			{ x: new Date(2021, 7, 4), y: 33 },
+			{ x: new Date(2021, 7, 5), y: 89 },
+			{ x: new Date(2021, 7, 6), y: 58 },
+			{ x: new Date(2021, 7, 7), y: 24 },
+			{ x: new Date(2021, 7, 8), y: 113 }
+		]
+	},
+  {
+		type: "line",
+		xValueFormatString: "DD MMM",
+		color: "red",
+    showInLegend: true,
+		name: "שלילי",
+		dataPoints: [
+			{ x: new Date(2021, 6, 29), y: 786 },
+			{ x: new Date(2021, 6, 30), y: 171 },
+			{ x: new Date(2021, 6, 31), y: 76 },
+			{ x: new Date(2021, 7, 1), y: 40 },
+			{ x: new Date(2021, 7, 2), y: 155 },
+			{ x: new Date(2021, 7, 3), y: 120 },
+			{ x: new Date(2021, 7, 4), y: 32 },
+			{ x: new Date(2021, 7, 5), y: 38 },
+			{ x: new Date(2021, 7, 6), y: 31 },
+			{ x: new Date(2021, 7, 7), y: 14 },
+      { x: new Date(2021, 7, 8), y: 41 }
 			
 		]
-	}]
+	}
+
+
+]
 });
   chart3.render();
   
+var chart10 = new CanvasJS.Chart("chartContainer10", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "גרף דגימות ניתוח רגשות"
+	},
+	axisX:{
+		valueFormatString: "DD MMM",
+		crosshair: {
+			enabled: true,
+			snapToDataPoint: true
+		}
+	},
+	axisY: {
+		title: "Number of Visits",
+		includeZero: true,
+		crosshair: {
+			enabled: true
+		}
+	},
+	toolTip:{
+		shared:true
+	},  
+	// legend:{
+	// 	cursor:"pointer",
+	// 	verticalAlign: "bottom",
+	// 	horizontalAlign: "",
+	// 	dockInsidePlotArea: true,
+	// 	itemclick: toogleDataSeries
+	// },
+	data: [{
+		type: "line",
+		showInLegend: true,
+		name: "מפוחד",
+    color: "red",
+		markerType: "square",
+		xValueFormatString: "DD MMM, YYYY",
+		dataPoints: [
+      { x: new Date(2021, 6, 29), y: 521 },
+			{ x: new Date(2021, 6, 30), y: 114 },
+			{ x: new Date(2021, 6, 31), y: 50 },
+			{ x: new Date(2021, 7, 1), y: 26 },
+			{ x: new Date(2021, 7, 2), y: 103 },
+			{ x: new Date(2021, 7, 3), y: 80 },
+			{ x: new Date(2021, 7, 4), y: 21 },
+			{ x: new Date(2021, 7, 5), y: 27 },
+			{ x: new Date(2021, 7, 6), y: 22 },
+			{ x: new Date(2021, 7, 7), y: 11 },
+      { x: new Date(2021, 7, 8), y: 90 }
+		]
+	},
+	{
+		type: "line",
+		showInLegend: true,
+		name: "מופתע",
+    color: "#33ccff",
+		dataPoints: [
+      { x: new Date(2021, 6, 29), y: 262 },
+			{ x: new Date(2021, 6, 30), y: 57 },
+			{ x: new Date(2021, 6, 31), y: 25 },
+			{ x: new Date(2021, 7, 1), y: 13 },
+			{ x: new Date(2021, 7, 2), y: 51 },
+			{ x: new Date(2021, 7, 3), y: 40 },
+			{ x: new Date(2021, 7, 4), y: 10 },
+			{ x: new Date(2021, 7, 5), y: 12 },
+			{ x: new Date(2021, 7, 6), y: 11 },
+			{ x: new Date(2021, 7, 7), y: 4 },
+      { x: new Date(2021, 7, 8), y: 33 }
+
+
+		]
+	},
+  {
+		type: "line",
+		showInLegend: true,
+		name: "סימני רגיעה",
+    color:"green",
+		dataPoints: [
+      { x: new Date(2021, 6, 29), y: 501 },
+			{ x: new Date(2021, 6, 30), y: 174 },
+			{ x: new Date(2021, 6, 31), y: 91 },
+			{ x: new Date(2021, 7, 1), y: 38 },
+			{ x: new Date(2021, 7, 2), y: 62 },
+			{ x: new Date(2021, 7, 3), y: 43 },
+			{ x: new Date(2021, 7, 4), y: 33 },
+			{ x: new Date(2021, 7, 5), y: 89 },
+			{ x: new Date(2021, 7, 6), y: 58 },
+			{ x: new Date(2021, 7, 7), y: 24 },
+			{ x: new Date(2021, 7, 8), y: 113 }
+		]
+	}
+
+]
+});
+chart10.render();
+
+function toogleDataSeries(e){
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	} else{
+		e.dataSeries.visible = true;
+	}
+	chart10.render();
+}
   
-  
-  
+
+var chart11 = new CanvasJS.Chart("chartContainer11", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "גרף דגימות אולוסיה"
+	},
+	axisX:{
+		valueFormatString: "DD MMM",
+		crosshair: {
+			enabled: true,
+			snapToDataPoint: true
+		}
+	},
+	axisY: {
+		title: "Number of Visits",
+		includeZero: true,
+		crosshair: {
+			enabled: true
+		}
+	},
+	toolTip:{
+		shared:true
+	},  
+	// legend:{
+	// 	cursor:"pointer",
+	// 	verticalAlign: "bottom",
+	// 	horizontalAlign: "left",
+	// 	dockInsidePlotArea: true,
+	// 	itemclick: toogleDataSeries
+	// },
+	data: [{
+		type: "line",
+    lineDashType: "longDash",
+		showInLegend: true,
+		name: "תושבי האזור",
+		markerType: "square",
+		xValueFormatString: "DD MMM, YYYY",
+		color: "#ff8000",
+		dataPoints: [
+      { x: new Date(2021, 6, 29), y: 21 },
+			{ x: new Date(2021, 6, 30), y: 31 },
+			{ x: new Date(2021, 6, 31), y: 23 },
+			{ x: new Date(2021, 7, 1), y: 11 },
+			{ x: new Date(2021, 7, 2), y: 0 },
+			{ x: new Date(2021, 7, 3), y: 0 },
+			{ x: new Date(2021, 7, 4), y: 0 },
+			{ x: new Date(2021, 7, 5), y: 0 },
+			{ x: new Date(2021, 7, 6), y: 0 },
+			{ x: new Date(2021, 7, 7), y: 0 }
+		]
+	},
+	{
+		type: "line",
+		showInLegend: true,
+		name: "תושבי ארה\"ב",
+		lineDashType: "dash",
+		dataPoints: [
+      { x: new Date(2021, 6, 29), y: 200 },
+			{ x: new Date(2021, 6, 30), y: 153 },
+			{ x: new Date(2021, 6, 31), y: 89 },
+			{ x: new Date(2021, 7, 1), y: 92 },
+			{ x: new Date(2021, 7, 2), y: 93 },
+			{ x: new Date(2021, 7, 3), y: 91 },
+			{ x: new Date(2021, 7, 4), y: 95 },
+			{ x: new Date(2021, 7, 5), y: 97 },
+			{ x: new Date(2021, 7, 6), y: 93 },
+			{ x: new Date(2021, 7, 7), y: 95 },
+      { x: new Date(2021, 7, 8), y: 89 }
+		]
+	},
+  {
+		type: "line",
+    lineDashType: "shortDashDot",
+		showInLegend: true,
+		name: " שאר העולם",
+    color:"#0000ff",
+		dataPoints: [
+      { x: new Date(2021, 6, 29), y: 95 },
+			{ x: new Date(2021, 6, 30), y: 92 },
+			{ x: new Date(2021, 6, 31), y: 85 },
+			{ x: new Date(2021, 7, 1), y: 65 },
+			{ x: new Date(2021, 7, 2), y: 46 },
+			{ x: new Date(2021, 7, 3), y: 37 },
+			{ x: new Date(2021, 7, 4), y: 54 },
+			{ x: new Date(2021, 7, 5), y: 29 },
+			{ x: new Date(2021, 7, 6), y: 49 },
+			{ x: new Date(2021, 7, 7), y: 34 },
+      { x: new Date(2021, 7, 7), y: 21 }
+		]
+},
+{
+		type: "line",
+		showInLegend: true,
+		name: "ארגונים ומוסדות",
+		color:"#660000	",
+		dataPoints: [
+      { x: new Date(2021, 6, 29), y: 707 },
+			{ x: new Date(2021, 6, 30), y: 533 },
+			{ x: new Date(2021, 6, 31), y: 521 },
+			{ x: new Date(2021, 7, 1), y: 609 },
+			{ x: new Date(2021, 7, 2), y: 453 },
+			{ x: new Date(2021, 7, 3), y: 422 },
+			{ x: new Date(2021, 7, 4), y: 322 },
+			{ x: new Date(2021, 7, 5), y: 264 },
+			{ x: new Date(2021, 7, 6), y: 244 },
+			{ x: new Date(2021, 7, 7), y: 139 },
+      { x: new Date(2021, 7, 7), y: 139 }
+		]
+
+	
+
+}]
+});
+chart11.render();
+
+function toogleDataSeries(e){
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	} else{
+		e.dataSeries.visible = true;
+	}
+	chart11.render();
+}
   }
   
   </script>
@@ -280,27 +513,55 @@ function explodePie (e) {
   </div>
 
   <table>
-    <tr><td  colspan=2>
-        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-     
-    </td></tr>
+  
     <tr>
       <td>
         
-          <div id="chartContainer1" style="height: 500px; width: 100%;"></div>
+          <div id="chartContainer" style="height: 500px; width: 100%;"></div>
       <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         
         </td>
       <td>
-        <div id="chartContainer2" style="height: 500px; width: 100%;"></div>
+        <div id="chartContainer6" style="height: 500px; width: 100%;"></div>
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
       </td>
     </tr>
-  <tr><td colspan=2>
-      <div id="chartContainer3" style="height: 370px; width: 100%;"></div>
+    <tr>
+      <td>
+        
+          <div id="chartContainer4" style="height: 500px; width: 100%;"></div>
       <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-  </td></tr>
+        
+        </td>
+      <td>
+        <div id="chartContainer5" style="height: 500px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+      </td>
+    </tr>
+  <tr>  
+    <td colspan=2>
+      
+      <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+      
+    </td>
+  </tr>  
+  <tr>  
+    <td colspan=2>
+      
+      <div id="chartContainer10" style="height: 300px; width: 100%;"></div>
+      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+      
+    </td>
+  </tr>
+  <tr>  
+    <td colspan=2>
+      
+      <div id="chartContainer11" style="height: 300px; width: 100%;"></div>
+      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+      
+    </td>
+  </tr>
   </table>
   
 </div>
