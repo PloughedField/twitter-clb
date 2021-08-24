@@ -58,7 +58,7 @@ function sendHttpRequest2(key_words) {
   return new Promise((resolve, rej) => {
     request.get('https://api.twitter.com/2/tweets/search/recent', {
       oauth: AuthenticationKeys,
-      qs: { query: key_words,max_results:100,result_type:mixed}
+      qs: { query: key_words,max_results:100}
     },
       async (err, res, body) => {
         var data = await JSON.parse(body);
